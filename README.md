@@ -7,9 +7,9 @@
 
 A Regular Picker for Filament Form.
 
-![](../screenshots/picker-dark.png)
+![image](https://raw.githubusercontent.com/icetalker/filament-picker/screenshots/picker-dark.png)
 
-![](../screenshots/picker-light.png)
+![image](https://raw.githubusercontent.com/icetalker/filament-picker/screenshots/picker-light.png)
 
 ## Installation
 
