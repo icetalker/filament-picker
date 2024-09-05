@@ -5,7 +5,7 @@
     $icons = $getIcons();
     $images = $getImages();
     $imageOnly = $getImageOnly();
-    $imageSize = $getImageSize() ?: 50;
+    $imageSize = $getImageSize() ?: [50, 50];
     $checkedColor = Color::Green[500];
 @endphp
 
@@ -49,7 +49,7 @@
                     x-on:click="setState('{{ $value }}')"
                 > 
                     @if(filled($images))
-                        <img src="{{ $images[$value] }}" alt="{{ $label }}" style="width:{{ $imageSize }}px; height:{{ $imageSize }}px;">
+                        <img src="{{ $images[$value] }}" alt="{{ $label }}" style="width:{{ $imageSize[0] }}px; height:{{ $imageSize[1] }}px;">
                     @endif
 
                     <div class="flex items-center text-center">
