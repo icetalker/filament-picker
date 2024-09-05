@@ -46,7 +46,10 @@ public function form(Form $form): Form
                     'airplane' => 'heroicon-o-paper-airplane',
                     'truck' => 'heroicon-o-truck',
                 ])
-                ->imageSize(100)
+                ->columns(3) // Optional. Use it as the official Filament columns() method.
+                ->imageSize(['100%', '']) // Optional. You can enter the width and height respectively in px or %.
+                ->imageObjectFit('cover') // Optional.
+                ->imageAspectRatio(['2/1']) // Optional. Usefull if you do not want to set both width and height. To make it responsive.
                 ->images([
                     'ship' => 'https://source.unsplash.com/random/100x100/?ship',
                     'airplane' => 'https://source.unsplash.com/random/100x100/?airplane',
