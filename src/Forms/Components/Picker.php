@@ -3,13 +3,15 @@
 namespace Icetalker\FilamentPicker\Forms\Components;
 
 use Closure;
-use Filament\Forms\Components\Concerns\HasOptions;
 use Filament\Forms\Components\Field;
+use Filament\Forms\Concerns\HasColumns;
+use Filament\Forms\Components\Concerns\HasOptions;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
 class Picker extends Field
 {
     use HasOptions;
+    use HasColumns;
     use HasExtraAlpineAttributes;
 
     protected string $view = 'filament-picker::picker';
@@ -18,9 +20,13 @@ class Picker extends Field
 
     protected array | Closure $images = [];
 
-    protected int | Closure | null $imageSize = null;
+    protected array | Closure $imageSize = [];
 
     protected bool | Closure $imageOnly = false;
+
+    protected String | Closure $imageObjectFit = 'cover';
+
+    protected String | Closure $imageAspectRatio = '1/1';
 
     protected function setUp(): void
     {
@@ -52,16 +58,16 @@ class Picker extends Field
         return (array)$this->evaluate($this->images);
     }
 
-    public function imageSize(int | Closure $size): static
+    public function imageSize(array | Closure $size): static
     {
         $this->imageSize = $size;
 
         return $this;
     }
 
-    public function getImageSize(): int
+    public function getImageSize(): array
     {
-        return (int)$this->evaluate($this->imageSize);
+        return (array)$this->evaluate($this->imageSize);
     }
 
     public function imageOnly(bool | Closure $condition = true){
@@ -71,6 +77,24 @@ class Picker extends Field
 
     public function getImageOnly(){
         return $this->evaluate($this->imageOnly);
+    }
+
+    public function imageObjectFit(String | Closure $imageObjectFit = 'cover'){
+        $this->imageObjectFit = $imageObjectFit;
+        return $this;
+    }
+
+    public function getImageObjectFit(){
+        return $this->evaluate($this->imageObjectFit);
+    }
+
+    public function imageAspectRatio(String | Closure $imageAspectRatio = '1/1'){
+        $this->imageAspectRatio = $imageAspectRatio;
+        return $this;
+    }
+
+    public function getImageAspecRatio(){
+        return $this->evaluate($this->imageAspectRatio);
     }
 
 }
