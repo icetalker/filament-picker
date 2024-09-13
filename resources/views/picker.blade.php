@@ -68,7 +68,7 @@
                 >
                     @if(filled($images))
                         <img src="{{ $images[$value] }}" alt="{{ $label }}"
-                             style="width:{{ $imageSize }}px; height:{{ $imageSize }}px;">
+                             style="width:{{ $imageSize }}px; height:{{ $imageSize }}px;" draggable="false">
                     @endif
 
                     <div class="flex items-center text-center">
