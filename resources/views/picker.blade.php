@@ -5,7 +5,7 @@
     $icons = $getIcons();
     $images = $getImages();
     $imageOnly = $getImageOnly();
-    $imageSize = $getImageSize() ?: 50;
+    $imageSize = $getImageSize();
     $checkedColor = Color::Green[500];
 @endphp
 
@@ -17,8 +17,8 @@
     <div
         {{ $attributes->merge($getExtraAttributes())->class(['ic-fo-picker']) }}
     >
-        <div 
-            x-data="{ 
+        <div
+            x-data="{
                 state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
                 setState: function(value) {
                     if(this.state == value){
@@ -26,7 +26,7 @@
                         return
                     }
                     this.state = value;
-                    
+
                     {{-- this.$refs.input.value = value --}}
                 }
             }"
@@ -39,7 +39,7 @@
             >
             <!-- Interact with the `state` property in Alpine.js -->
             @foreach($options as $value => $label)
-                <button 
+                <button
                     type="button"
                     x-bind:class="
                         state == '{{ $value }}'
@@ -47,9 +47,9 @@
                             : 'px-2 py-1 rounded text-gray-900 shadow relative dark:bg-gray-700'
                         "
                     x-on:click="setState('{{ $value }}')"
-                > 
+                >
                     @if(filled($images))
-                        <img src="{{ $images[$value] }}" alt="{{ $label }}" style="width:{{ $imageSize }}px; height:{{ $imageSize }}px;">
+                        <img src="{{ $images[$value] }}" alt="{{ $label }}" style="width:{{ $imageSize[0] }}; height:{{ $imageSize[1] }};">
                     @endif
 
                     <div class="flex items-center text-center">
@@ -71,7 +71,7 @@
                             />
                         </span>
                     </div>
-                      
+
                 </button>
             @endforeach
 

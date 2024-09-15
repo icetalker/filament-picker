@@ -59,9 +59,29 @@ class Picker extends Field
         return $this;
     }
 
-    public function getImageSize(): int
+    public function getImageSize(): array
     {
-        return (int)$this->evaluate($this->imageSize);
+        $size = $this->evaluate($this->imageSize);
+
+        if (is_int($size)) {
+            return ["{$size}px", null];
+        }
+
+        if (is_string($size)) {
+            return [$size, null];
+        }
+
+        if (is_array($size)) {
+            $width = $size[0] ?? null;
+            $height = $size[1] ?? null;
+
+            $width = is_int($width) ? "{$width}px" : (string) $width;
+            $height = is_int($height) ? "{$height}px" : (string) $height;
+
+            return [$width, $height];
+        }
+
+        return ['auto', null];
     }
 
     public function imageOnly(bool | Closure $condition = true){
