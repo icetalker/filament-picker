@@ -22,6 +22,8 @@ class Picker extends Field
 
     protected bool | Closure $imageOnly = false;
 
+    protected bool|Closure $multiple = false;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -73,4 +75,14 @@ class Picker extends Field
         return $this->evaluate($this->imageOnly);
     }
 
+    public function multiple(bool|Closure $multiple = true)
+    {
+        $this->multiple = $multiple;
+
+        return $this;
+    }
+
+    public function getMultiple(){
+        return $this->evaluate($this->multiple);
+    }
 }
