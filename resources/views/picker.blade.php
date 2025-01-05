@@ -72,12 +72,12 @@
                     @endif
 
                     <div class="flex items-center text-center">
-                        @if(@isset($icons[$value]))
+                        @isset($icons[$value])
                             <x-filament::icon
                                 icon="{{ $icons[$value] }}"
                                 class="h-4 w-4 mr-2"
                             />
-                        @endif
+                        @endisset
                         @if(!$imageOnly || !filled($images))
                             {{ $label }}
                         @endif
