@@ -5,12 +5,14 @@ namespace Icetalker\FilamentPicker\Forms\Components;
 use Closure;
 use Filament\Forms\Components\Concerns\HasOptions;
 use Filament\Forms\Components\Field;
+use Filament\Support\Concerns\HasAlignment;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
 class Picker extends Field
 {
     use HasOptions;
     use HasExtraAlpineAttributes;
+    use HasAlignment;
 
     protected string $view = 'filament-picker::picker';
 

@@ -1,5 +1,6 @@
 @php
     use Filament\Support\Colors\Color;
+    use Filament\Support\Enums\Alignment;
 
     $options = $getOptions();
     $icons = $getIcons();
@@ -8,6 +9,11 @@
     $imageSize = $getImageSize() ?: 50;
     $checkedColor = Color::Green[500];
     $multiple = $getMultiple();
+    $alignment = $getAlignment();
+
+    if (! $alignment instanceof Alignment) {
+        $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
+    }
 @endphp
 
 <x-dynamic-component
@@ -49,6 +55,19 @@
                         }
                     }"
             @endif
+            @class([
+                'flex flex-wrap gap-2',
+                match ($alignment) {
+                    Alignment::Start => 'justify-start',
+                    Alignment::Center => 'justify-center',
+                    Alignment::End => 'justify-end',
+                    Alignment::Left => 'justify-start',
+                    Alignment::Right => 'justify-end',
+                    Alignment::Between => 'justify-between',
+                    Alignment::Justify => 'justify-around',
+                    default => $alignment,
+                }
+            ])
             class="flex flex-wrap gap-2 justify-around"
         >
             <input
