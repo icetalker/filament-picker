@@ -9,6 +9,8 @@
     $imageSize = $getImageSize() ?: 50;
     $checkedColor = Color::Green[500];
     $multiple = $getMultiple();
+    $bgColor = $getBackgroundColor();
+    $activeBgColor = $getActiveBackgroundColor();
     $alignment = $getAlignment();
 
     if (! $alignment instanceof Alignment) {
@@ -81,10 +83,11 @@
                 <button
                     type="button"
                     x-bind:class="@if($multiple) state.includes('{{ $value }}') @else state == '{{ $value }}' @endif
-                            ? 'px-2 py-1 rounded shadow bg-primary-500 text-white relative'
-                            : 'px-2 py-1 rounded text-gray-900 shadow relative dark:bg-gray-700'"
+                            ? 'px-2 py-1 rounded shadow {{ $activeBgColor }} text-white relative'
+                            : 'px-2 py-1 rounded text-gray-900 shadow relative {{ $bgColor }}'"
                     x-on:click="setState('{{ $value }}')"
                 >
+
                     @if(filled($images))
                         <img src="{{ $images[$value] }}" alt="{{ $label }}"
                              style="width:{{ $imageSize }}px; height:{{ $imageSize }}px;" draggable="false">

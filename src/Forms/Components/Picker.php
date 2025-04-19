@@ -26,10 +26,37 @@ class Picker extends Field
 
     protected bool|Closure $multiple = false;
 
+    protected string|Closure $backgroundColor = 'bg-white dark:bg-gray-800';
+
+    protected string|Closure $activeBackgroundColor = 'bg-primary-500';
+
     protected function setUp(): void
     {
         parent::setUp();
+    }
 
+    public function backgroundColor(string | Closure $color): static
+    {
+        $this->backgroundColor = $color;
+
+        return $this;
+    }
+
+    public function activeBackgroundColor(string | Closure $color): static
+    {
+        $this->activeBackgroundColor = $color;
+
+        return $this;
+    }
+
+    public function getBackgroundColor(): string
+    {
+        return (string)$this->evaluate($this->backgroundColor);
+    }
+
+    public function getActiveBackgroundColor(): string
+    {
+        return (string)$this->evaluate($this->activeBackgroundColor);
     }
 
     public function icons(array | Closure $icons): static
