@@ -1,0 +1,10 @@
+{
+  "resources/css/picker.css": {
+    "file": "css/picker.css",
+    "src": "resources/css/picker.css",
+    "isEntry": true,
+    "names": [
+      "picker.css"
+    ]
+  }
+}
