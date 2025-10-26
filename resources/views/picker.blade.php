@@ -107,7 +107,7 @@
                          x-show="state.includes('{{ $value }}')">
                             <span style="color:{{ $checkedColor }}">
                                 <x-filament::icon
-                                    icon="heroicon-S-check-circle"
+                                    icon="heroicon-s-check-circle"
                                 />
                             </span>
                     </div>
