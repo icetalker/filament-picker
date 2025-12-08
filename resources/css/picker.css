@@ -2,40 +2,41 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-.it-picker{
-    & > div{
+.it-picker {
+    &>div {
         @apply flex flex-wrap gap-2;
 
-        & .it-picker-item-picked{
-            @apply px-2 py-1 rounded shadow relative bg-amber-500;
+        & .it-picker-item-picked,
+        & .it-picker-item {
+            @apply px-2 py-1 rounded shadow relative;
         }
 
-        & .it-picker-item{
-            @apply px-2 py-1 rounded shadow relative bg-white dark:bg-gray-800;
+        & .it-picker-item {
+            @apply px-2 py-1 rounded shadow relative;
         }
 
-        & .it-picker-item-label{
+        & .it-picker-item-label {
             @apply flex items-center text-center;
 
-            & > svg{
+            &>svg {
                 @apply h-4 w-4 mr-2;
             }
-            
+
         }
 
-        & .it-picker-checked-icon{
+        & .it-picker-checked-icon {
             @apply absolute -right-2 -top-2;
 
-            & > span{
+            &>span {
                 @apply bg-white;
 
-                @svg{
+                @svg {
                     @apply bg-white;
                 }
 
             }
-            
-            
+
+
         }
 
     }

@@ -28,7 +28,7 @@ class Picker extends Field
 
     protected string|Closure $backgroundColor = 'bg-white dark:bg-gray-800';
 
-    protected string|Closure $activeBackgroundColor = 'bg-primary-500';
+    protected string|Closure $activeBackgroundColor = 'bg-amber-500';
 
     protected function setUp(): void
     {
