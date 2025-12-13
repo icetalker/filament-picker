@@ -141,7 +141,7 @@ Picker::make('transport')
     ->backgroundColor('bg-white dark:bg-gray-800')
     ->activeBackgroundColor('bg-gray-400')，
 ```
-> Note: Please make sure the parameters you passedd are valid tailwind color value.
+> Note: Please make sure the parameters you passed are valid tailwind color value.
 
 ## Todo
 

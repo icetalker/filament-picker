@@ -3,6 +3,7 @@
     "file": "css/picker.css",
     "src": "resources/css/picker.css",
     "isEntry": true,
+    "name": "picker",
     "names": [
       "picker.css"
     ]
