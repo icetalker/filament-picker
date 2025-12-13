@@ -105,11 +105,7 @@
                     </div>
                     <div class="it-picker-checked-icon" style="right:-.5rem;top:-.5rem;"
                          x-show="state.includes('{{ $value }}')">
-                            <span style="color:{{ $checkedColor }}">
-                                <x-filament::icon
-                                    icon="heroicon-s-check-circle"
-                                />
-                            </span>
+                            @svg('heroicon-s-check-circle', ['class' => 'h-6 w-6','color' => $checkedColor])
                     </div>
                 </button>
             @endforeach
